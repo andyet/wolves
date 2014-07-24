@@ -16,9 +16,7 @@ server.pack.register({
                 __dirname + '/public/css/bootstrap.css'
             ],
             beforeBuildJS: function () {
-                if (config.isDev) {
-                    templatizer(__dirname + '/templates', __dirname + '/client/templates.js');
-                }
+                templatizer(__dirname + '/templates', __dirname + '/client/templates.js');
             }
         }
     }
