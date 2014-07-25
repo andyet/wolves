@@ -3,20 +3,17 @@ var MainView = require('./views/main');
 var Router = require('./router');
 var Howls = require('./models/howls');
 var Me = require('./models/me');
+var howler = require('philip-howler');
 
 window.app = {
     init: function () {
         var self = this;
+        howler.play();
 
         this.me = new Me();
-        this.me.fetch();
 
         this.howls = new Howls();
-        this.howls.fetch();
-
-        setInterval(function () {
-           self.howls.fetch();
-        }, 5000);
+        this.howls.fetchRealtime();
 
         this.router = new Router();
 
@@ -26,6 +23,7 @@ window.app = {
             });
 
             self.router.history.start({pushState: true});
+            self.me.fetch();
         });
     }
 };

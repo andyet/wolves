@@ -23,6 +23,11 @@
         return '<div class="well"><p role="content"></p><p role="createdAt"></p></div>';
     };
 
+    // includes/newHowl.jade compiled template
+    templatizer["includes"]["newHowl"] = function tmpl_includes_newHowl() {
+        return '<div><form role="new-howl"><textarea name="content" placeholder="Awwwooo!"></textarea><button type="submit">Send a howl!</button></form></div>';
+    };
+
     // pages/home.jade compiled template
     templatizer["pages"]["home"] = function tmpl_pages_home() {
         return '<section class="page home"><h1>Home</h1></section>';
@@ -30,7 +35,7 @@
 
     // pages/howls.jade compiled template
     templatizer["pages"]["howls"] = function tmpl_pages_howls() {
-        return '<section class="page howls"><h1>Howls</h1><div role="howls"></div></section>';
+        return '<section class="page howls"><h1>Howls</h1><div role="new-howl"></div><div role="howls"></div></section>';
     };
 
     return templatizer;
